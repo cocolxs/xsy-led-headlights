@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: xsy-led-headlights
+    runtime: docker
+    repo: https://github.com/your-github-username/xsy-led-headlights.git
+    branch: main
+    dockerfilePath: deploy/render/Dockerfile
+    plan: starter
+    healthCheckPath: /
+    autoDeploy: yes
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SERVER_HOST
+        value: 0.0.0.0
+      - key: SERVER_PORT
+        value: 10000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: xsy-led-db
+          property: connectionString
+
+databases:
+  - name: xsy-led-db
+    databaseName: xsy_led
+    user: xsy_admin
+    plan: starter
+    postgresMajorVersion: "16"
+    ipAllowList: []

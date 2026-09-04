@@ -1,0 +1,1 @@
+{"cases":[{"id":1,"priority":"p0","description":"打开 /about 页，检查页面是否渲染并查看 console 和 network 错误"},{"id":2,"priority":"p1","description":"从首页导航点击 About 链接，验证跳转后页面正常"}]}
